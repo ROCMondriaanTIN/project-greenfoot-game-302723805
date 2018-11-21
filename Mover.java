@@ -17,7 +17,7 @@ public class Mover extends Actor {
     private int worldY;
     private boolean firstLocation = true;
     private boolean hasCamera;
-
+    
     /**
      * Methode to set the camera a Mover can have
      *
@@ -61,7 +61,9 @@ public class Mover extends Actor {
         super.setLocation(screenX, screenY);
         this.worldX = x;
         this.worldY = y;
-    }
+        
+
+}
 
     @Override
     public int getX() {
