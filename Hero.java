@@ -14,18 +14,11 @@ public class Hero extends Mover {
     private final double drag;
     private boolean mirror;
     private boolean rechts;
+    private int teller;
+    private String letter;
+    public static boolean paktLetterB;
+    public static int Letter;
     
-    //private GreenfootImage run1 = new GreenfootImage ("p1_walk01.png");
-    //private GreenfootImage run2 = new GreenfootImage ("p1_walk02.png");
-    //private GreenfootImage run3 = new GreenfootImage ("p1_walk03.png");
-    //private GreenfootImage run4 = new GreenfootImage ("p1_walk04.png");
-    //private GreenfootImage run5 = new GreenfootImage ("p1_walk05.png");
-    //private GreenfootImage run6 = new GreenfootImage ("p1_walk06.png");
-    //private GreenfootImage run7 = new GreenfootImage ("p1_walk07.png");
-    //private GreenfootImage run8 = new GreenfootImage ("p1_walk08.png");
-    //private GreenfootImage run9 = new GreenfootImage ("p1_walk09.png");
-    //private GreenfootImage run10 = new GreenfootImage ("p1_walk10.png");
-    //private GreenfootImage run11 = new GreenfootImage ("p1_walk11.png");
     
     private int frame = 1;
     public Hero() {
@@ -38,10 +31,17 @@ public class Hero extends Mover {
 
     @Override
     public void act() {
+        
+        getWorld().showText(getX()+ ", " + getY(),100,100);
+    
+    
         handleInput();
+        letterB();
         
         velocityX *= drag;
         velocityY += acc;
+        getWorld().showText("Letter = " + Integer.toString(Letter),950,50);
+       
         if (velocityY > gravity) {
             velocityY = gravity;
         }
@@ -60,6 +60,16 @@ public class Hero extends Mover {
                 Greenfoot.setWorld(new GameOver());
                 return;
             }
+            
+        }
+        
+                for (Actor slak : getIntersectingObjects(slak.class)) {
+            if (slak != null) {
+                getWorld().removeObject(this);
+                Greenfoot.setWorld(new GameOver());
+                return;
+            }
+            
         }
                 for (Actor Dood : getIntersectingObjects(Dood.class)) {
             if (Dood != null) {
@@ -68,7 +78,42 @@ public class Hero extends Mover {
                 return;
             }
         }
+        for (Actor letterB : getIntersectingObjects(LetterB.class)) {
+            if (letterB != null) {
+                //getWorld().removeObject(this);
+                //Greenfoot.setWorld(new GameOver());
+                //letter = letterB.getLetter();
+                return;
+            }
+            
+        }
     }
+    
+    public void Hartje()
+    {
+       
+if (isTouching(Hartje.class)){
+    removeTouching (Hartje.class);
+}
+    }
+    
+     public void letterB()
+    {
+       
+if (isTouching(LetterB.class)){
+    removeTouching (LetterB.class);
+}
+}
+//public void act()
+{
+    //velocityX *= drag;
+    //velocityX += acc;
+    
+   // getWorld().showText("Letter = " + Integer.toString(LetterB),950,50);
+    }
+
+
+  
     
     public void Animate()
     
@@ -120,6 +165,9 @@ public class Hero extends Mover {
         setImage ("p1_walk11.png");
         frame = 0;
         break;
+        default:
+        teller = 0;
+        break;
       } 
     frame ++;
     mirrorImage();
@@ -128,9 +176,9 @@ public class Hero extends Mover {
     
 
     public void handleInput() {
-        if (Greenfoot.isKeyDown("w")) {//&& velocityY == 0
+        if (Greenfoot.isKeyDown("w")){//&& velocityY == 0) {
             setImage("p1_jump.png");
-            velocityY = -10;
+            velocityY = -11;
         }
 
         if (Greenfoot.isKeyDown("a")) {

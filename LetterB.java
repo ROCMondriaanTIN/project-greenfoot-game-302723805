@@ -1,21 +1,24 @@
-
-import greenfoot.*;
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- *
- * @author R. Springer
+ * Write a description of class letterB here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
  */
-public class Slime extends Mover {
+public class LetterB extends Mover {
 
     private int walkRange;
     private int xMin;
     private int xMax;
     private boolean firstAct;
     private int speed;
+    public String letter = "B";
 
-    public Slime() {
+    public LetterB() {
         super();
-        setImage("slimeWalk2.png");
+        //setImage("1200px-LetterB.svg.png");
+        setImage("Letters/letter_" + letter + ".png");
         getImage().mirrorHorizontally();
         walkRange = 360;
         firstAct = true;
@@ -24,7 +27,15 @@ public class Slime extends Mover {
       
 
     @Override
-    public void act() {
+    public void act() 
+    {
+    
+   /* if (Hero.pakLetters == true;
+    {
+        setImage ("letter_B.png");
+    } if Hero.pakLetters == false;{
+        setImage("letter_B.png");
+*/
         int x = getX();
         int y = getY();
 
@@ -52,4 +63,9 @@ public class Slime extends Mover {
             getImage().mirrorHorizontally();
         }
     }
+    public String getLetter()
+    {
+        return letter;
+    }
 }
+

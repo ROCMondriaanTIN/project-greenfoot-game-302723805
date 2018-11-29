@@ -1,11 +1,12 @@
-
-import greenfoot.*;
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- *
- * @author R. Springer
+ * Write a description of class slak here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
  */
-public class Slime extends Mover {
+public class slak extends Mover {
 
     private int walkRange;
     private int xMin;
@@ -13,11 +14,11 @@ public class Slime extends Mover {
     private boolean firstAct;
     private int speed;
 
-    public Slime() {
+    public slak() {
         super();
-        setImage("slimeWalk2.png");
+        setImage("snailWalk1.png");
         getImage().mirrorHorizontally();
-        walkRange = 360;
+        walkRange = 250;
         firstAct = true;
         speed = 1;
     }

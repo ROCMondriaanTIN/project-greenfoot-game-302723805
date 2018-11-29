@@ -1,11 +1,12 @@
-
-import greenfoot.*;
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- *
- * @author R. Springer
+ * Write a description of class Test here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
  */
-public class Slime extends Mover {
+public class Hartje extends Mover {
 
     private int walkRange;
     private int xMin;
@@ -13,11 +14,11 @@ public class Slime extends Mover {
     private boolean firstAct;
     private int speed;
 
-    public Slime() {
+    public Hartje() {
         super();
-        setImage("slimeWalk2.png");
-        getImage().mirrorHorizontally();
-        walkRange = 360;
+        setImage("hud_heartFull.png");
+        //getImage().mirrorHorizontally();
+        //walkRange = 250;
         firstAct = true;
         speed = 1;
     }
