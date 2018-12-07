@@ -18,6 +18,7 @@ public class Hero extends Mover {
     private String letter;
     public static boolean paktLetterB;
     public static int Letter;
+    private int score;
     
     
     private int frame = 1;
@@ -92,25 +93,27 @@ public class Hero extends Mover {
     public void Hartje()
     {
        
-if (isTouching(Hartje.class)){
+if  (isTouching(Hartje.class)){
     removeTouching (Hartje.class);
 }
     }
     
      public void letterB()
     {
-       
-if (isTouching(LetterB.class)){
+       getWorld().showText("Score:"+ Integer.toString(score),60,75);
+ if (isTouching(LetterB.class)){
     removeTouching (LetterB.class);
+    score = score +50;
+  
 }
 }
 //public void act()
-{
+//{
     //velocityX *= drag;
     //velocityX += acc;
     
-   // getWorld().showText("Letter = " + Integer.toString(LetterB),950,50);
-    }
+    //getWorld().showText("Letter = " + Integer.toString(LetterB),950,50);
+    //}
 
 
   
@@ -156,24 +159,18 @@ if (isTouching(LetterB.class)){
             setImage ("p1_walk09.png");
             break;
        case 10:
-        
-            
-            setImage ("p1_walk10.png");
+        setImage ("p1_walk10.png");
             break;    
        case 11:
        
         setImage ("p1_walk11.png");
         frame = 0;
         break;
-        default:
-        teller = 0;
-        break;
-      } 
+    }
     frame ++;
     mirrorImage();
 }
-
-    
+  
 
     public void handleInput() {
         if (Greenfoot.isKeyDown("w")){//&& velocityY == 0) {
@@ -182,11 +179,11 @@ if (isTouching(LetterB.class)){
         }
 
         if (Greenfoot.isKeyDown("a")) {
-            velocityX = -2;
+            velocityX =-5;
             rechts = false;
             Animate();
         } else if (Greenfoot.isKeyDown("d")) {
-            velocityX = 2;
+            velocityX = 5;
               rechts = true;
             Animate();
         }
@@ -202,7 +199,7 @@ if (isTouching(LetterB.class)){
             getImage().mirrorHorizontally();
         }
     }
-    
+   
 
     public int getWidth() {
         return getImage().getWidth();

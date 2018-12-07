@@ -24,7 +24,7 @@ public class LetterB extends Mover {
         firstAct = true;
         speed = 1;
     }
-      
+
 
     @Override
     public void act() 
@@ -36,6 +36,7 @@ public class LetterB extends Mover {
     } if Hero.pakLetters == false;{
         setImage("letter_B.png");
 */
+
         int x = getX();
         int y = getY();
 

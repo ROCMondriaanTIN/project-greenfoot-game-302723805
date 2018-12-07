@@ -90,4 +90,9 @@ public class MyWorld extends World {
     public void act() {
         ce.update();
     }
+    public void resetStatic() {
+       
+        
+        
+    }
 }
