@@ -29,6 +29,7 @@ public class LetterB extends Mover {
     public void act() 
     {
     
+
         int x = getX();
         int y = getY();
 
