@@ -73,6 +73,14 @@ public class MyWorld extends World {
         addObject(new slak(), 1466, 1247);
         
        addObject(new LetterB(), 300, 972);
+       
+       addObject(new LetterI(), 2053, 900);
+       
+       addObject(new LetterK(), 2951, 1000);
+       
+       addObject(new LetterC(), 2900, 1000);
+       
+       addObject(new LetterE(), 3568, 200);
         //addObject(new Enemy(), 1170, 410);
         
         // Force act zodat de camera op de juist plek staat.
@@ -89,5 +97,10 @@ public class MyWorld extends World {
     @Override
     public void act() {
         ce.update();
+    }
+    public void resetStatic() {
+       
+        
+        
     }
 }

@@ -18,6 +18,7 @@ public class Hero extends Mover {
     private String letter;
     public static boolean paktLetterB;
     public static int Letter;
+    private int score;
     
     
     private int frame = 1;
@@ -37,6 +38,11 @@ public class Hero extends Mover {
     
         handleInput();
         letterB();
+        LetterK();
+        LetterC();
+        LetterE();
+        letterI();
+        Hartje();
         
         velocityX *= drag;
         velocityY += acc;
@@ -78,6 +84,13 @@ public class Hero extends Mover {
                 return;
             }
         }
+        for (Actor letterI : getIntersectingObjects(LetterI.class)){
+        if (letterI != null) {
+           
+            return;
+        }
+    }
+    
         for (Actor letterB : getIntersectingObjects(LetterB.class)) {
             if (letterB != null) {
                 //getWorld().removeObject(this);
@@ -87,34 +100,72 @@ public class Hero extends Mover {
             }
             
         }
+        
     }
-    
     public void Hartje()
     {
+        getWorld().showText("Score:"+ Integer.toString(score),60,75);
        
 if (isTouching(Hartje.class)){
     removeTouching (Hartje.class);
+    score = score +50;
 }
+}
+
+  public void LetterC()
+    {
+        getWorld().showText("Score:"+ Integer.toString(score),60,75);
+       
+if (isTouching(LetterC.class)){
+    removeTouching (LetterC.class);
+    score = score -25;
+}
+}
+
+    public void LetterE()
+    {
+        getWorld().showText("Score:"+ Integer.toString(score),60,75);
+       
+if (isTouching(LetterE.class)){
+    removeTouching (LetterE.class);
+    score = score +50;
+}
+
     }
     
      public void letterB()
     {
-       
-if (isTouching(LetterB.class)){
+       getWorld().showText("Score:"+ Integer.toString(score),60,75);
+ if (isTouching(LetterB.class)){
     removeTouching (LetterB.class);
+    score = score +50;
+  
+}
+
+
+}
+public void LetterK()
+    {
+       getWorld().showText("Score:"+ Integer.toString(score),60,75);
+ if (isTouching(LetterK.class)){
+    removeTouching (LetterK.class);
+    score = score +50;
+  
 }
 }
-//public void act()
-{
-    //velocityX *= drag;
-    //velocityX += acc;
-    
-   // getWorld().showText("Letter = " + Integer.toString(LetterB),950,50);
+
+public void letterI(){
+   getWorld().showText("Score:"+ Integer.toString(score),60,75);
+   if (isTouching(LetterI.class)){
+       removeTouching (LetterI.class);
+       score = score +50;
+       }
+       
     }
 
 
-  
-    
+
+
     public void Animate()
     
    {
@@ -156,24 +207,18 @@ if (isTouching(LetterB.class)){
             setImage ("p1_walk09.png");
             break;
        case 10:
-        
-            
-            setImage ("p1_walk10.png");
+        setImage ("p1_walk10.png");
             break;    
        case 11:
        
         setImage ("p1_walk11.png");
         frame = 0;
         break;
-        default:
-        teller = 0;
-        break;
-      } 
+    }
     frame ++;
     mirrorImage();
 }
-
-    
+  
 
     public void handleInput() {
         if (Greenfoot.isKeyDown("w")){//&& velocityY == 0) {
@@ -182,11 +227,11 @@ if (isTouching(LetterB.class)){
         }
 
         if (Greenfoot.isKeyDown("a")) {
-            velocityX = -2;
+            velocityX =-5;
             rechts = false;
             Animate();
         } else if (Greenfoot.isKeyDown("d")) {
-            velocityX = 2;
+            velocityX = 5;
               rechts = true;
             Animate();
         }
@@ -202,7 +247,7 @@ if (isTouching(LetterB.class)){
             getImage().mirrorHorizontally();
         }
     }
-    
+   
 
     public int getWidth() {
         return getImage().getWidth();
